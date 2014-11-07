@@ -5,5 +5,4 @@ Cole Williams
 ENGR131
 %}
 
-'bullshit goes here'
 penny
