@@ -362,49 +362,58 @@ function update(array) %function requirement
       
     switch eventdata.Key
       case 'w' 
-          disp('Up');
-          
           for c=1:4 %loop requirement
               count=0;
               celery=cell(1);
               for r=1:4 %figures out how many blocks are filled per column
-                  if board(r,c)
+                  if board(r,c)~=0
                       count=count+1;
                       celery{count}=board(r,c);
                   end
               end
-              if count>0
-              for i=2:count %merges same blocks
-                  if celery{i-1} == celery{i}
-                      celery{i-1}=2*celery{i-1};
+              if count>1 %if there is stuff that could merge
+                  for i=2:count %merges same blocks
+                      if celery{i-1} == celery{i}
+                          celery{i-1}=2*celery{i-1};
+                      end
                   end
               end
-              
-              for j=1:length(celery) %puts updated blockchain in new array
-                  array(j,c)=celery{j};
+              if count>0 %if there is stuff that could move
+                  for j=1:length(celery) %puts updated blockchain in new array
+                      array(j,c)=celery{j};
+                  end
               end
           end
-          end
-          update(array)
-          disp('Up');
+          update(array);
 
       case 'a'
-          disp('Left');
-          array=board;
-          update(array)
-          disp('Left');
+          for r=1:4 %loop requirement
+              count=0;
+              celery=cell(1);
+              for c=1:4 %figures out how many blocks are filled per column
+                  if board(r,c)~=0
+                      count=count+1;
+                      celery{count}=board(r,c);
+                  end
+              end
+              if count>1 %if there is stuff that could merge
+                  for i=2:count %merges same blocks
+                      if celery{i-1} == celery{i}
+                          celery{i-1}=2*celery{i-1};
+                      end
+                  end
+              end
+              if count>0 %if there is stuff that could move
+                  for j=1:length(celery) %puts updated blockchain in new array
+                      array(r,j)=celery{j};
+                  end
+              end
+          end
+          update(array);
 
       case 's'
-          disp('Down');
-          array=board;
-          update(array)
-          disp('Down');
           
       case 'd'
-          disp('Right');
-          array=board;
-          update(array)
-          disp('Right');
           
     end
     
