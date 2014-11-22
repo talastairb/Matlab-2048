@@ -2,7 +2,7 @@ Matlab-Final-Project
 ====================
 This is our final project for ENGR131
 
-Open this file in matlab for proper formatting
+View this file as raw text for proper formatting
 
 
 Known issues:
