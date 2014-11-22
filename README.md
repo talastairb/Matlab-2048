@@ -7,6 +7,5 @@ Known issues:
 
 Numbers spawn when there are invalid moves
 Save/Load freeze the program
-Moving down/right has not been enabled
 
 -Alastair
