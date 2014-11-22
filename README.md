@@ -2,6 +2,8 @@ Matlab-Final-Project
 ====================
 This is our final project for ENGR131
 
+Open this file in matlab for proper formatting
+
 
 Known issues:
 Numbers spawn when there are invalid moves-minor
