@@ -367,20 +367,22 @@ function update(array) %function requirement
           for c=1:4 %loop requirement
               count=0;
               celery=cell(1);
-              for r=1:4
+              for r=1:4 %figures out how many blocks are filled per column
                   if board(r,c)
                       count=count+1;
-                      celery{count}=r;
+                      celery{count}=board(r,c);
                   end
               end
               
-              for i=1:count
-                  if 
-                  
+              for i=2:count %merges same blocks
+                  if celery{i-1} == celery{i}
+                      celery{i-1}=2*celery{i-1};
+                  end
               end
-            
               
-              
+              for j=1:length(celery) %puts updated blockchain in new array
+                  array(j,c)=celery{j};
+              end
           end
           update(array)
           disp('Up');
