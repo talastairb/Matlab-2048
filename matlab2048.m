@@ -40,15 +40,6 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
     
 board=[0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0]; %represents the value in each board position
 
-r=randi(4);
-c=randi(4);
-
-if randi(3)==1
-    board(r,c)=4;
-else
-	board(r,c)=2;
-end
-
 update(board);
 
 
@@ -216,15 +207,181 @@ function update(array) %function requirement
                         board(celery{x,1},celery{x,2})=2;
                     end
                 end
+                
+                
+          
+                if board(1,1) == 0
+                    set(static11, 'String', '')
+                    count =count+1;
+                    celery{count,1}=1;
+                    celery{count,2}=1;
+                else
+                    set(static11, 'String', num2str(board(1,1)))
+                end
+                
+                if board(1,2) == 0
+                    set(static12, 'String', '')
+                    count =count+1;
+                    celery{count,1}=1;
+                    celery{count,2}=2;
+                else
+                    set(static12, 'String', num2str(board(1,2)))
+                end
+                
+                if board(1,3) == 0
+                    set(static13, 'String', '')
+                    count =count+1;
+                    celery{count,1}=1;
+                    celery{count,2}=3;
+                else
+                    set(static13, 'String', num2str(board(1,3)))
+                end
+                
+                if board(1,4) == 0
+                    set(static14, 'String', '')
+                    count =count+1;
+                    celery{count,1}=1;
+                    celery{count,2}=4;
+                else
+                    set(static14, 'String', num2str(board(1,4)))
+                end
+                
+                if board(2,1) == 0
+                    set(static21, 'String', '')
+                    count = count+1;
+                    celery{count,1}=2;
+                    celery{count,2}=1;
+                else
+                    set(static21, 'String', num2str(board(2,1)))
+                end
+                
+                if board(2,2) == 0
+                    set(static22, 'String', '')
+                    count = count+1;
+                    celery{count,1}=2;
+                    celery{count,2}=2;
+                else
+                    set(static22, 'String', num2str(board(2,2)))
+                end
+                
+                if board(2,3) == 0
+                    set(static23, 'String', '')
+                    count = count+1;
+                    celery{count,1}=2;
+                    celery{count,2}=3;
+                else
+                    set(static23, 'String', num2str(board(2,3)))
+                end
+                
+                if board(2,4) == 0
+                    set(static24, 'String', '')
+                    count = count+1;
+                    celery{count,1}=2;
+                    celery{count,2}=4;
+                else
+                    set(static24, 'String', num2str(board(2,4)))
+                end
+                
+                if board(3,1) == 0
+                    set(static31, 'String', '')
+                    count = count+1;
+                    celery{count,1}=3;
+                    celery{count,2}=1;
+                else
+                    set(static31, 'String', num2str(board(3,1)))
+                end
+                
+                if board(3,2) == 0
+                    set(static32, 'String', '')
+                    count = count+1;
+                    celery{count,1}=3;
+                    celery{count,2}=2;
+                else
+                    set(static32, 'String', num2str(board(3,2)))
+                end
+                
+                if board(3,3) == 0
+                    set(static33, 'String', '')
+                    count = count+1;
+                    celery{count,1}=3;
+                    celery{count,2}=3;
+                else
+                    set(static33, 'String', num2str(board(3,3)))
+                end
+                
+                if board(3,4) == 0
+                    set(static34, 'String', '')
+                    count = count+1;
+                    celery{count,1}=3;
+                    celery{count,2}=4;
+                else
+                    set(static34, 'String', num2str(board(3,4)))
+                end
+                
+                if board(4,1) == 0
+                    set(static41, 'String', '')
+                    count = count+1;
+                    celery{count,1}=4;
+                    celery{count,2}=1;
+                else
+                    set(static41, 'String', num2str(board(4,1)))
+                end
+                
+                if board(4,2) == 0
+                    set(static42, 'String', '')
+                    count = count+1;
+                    celery{count,1}=4;
+                    celery{count,2}=2;
+                else
+                    set(static42, 'String', num2str(board(4,2)))
+                end
+                
+                if board(4,3) == 0
+                    set(static43, 'String', '')
+                    count = count+1;
+                    celery{count,1}=4;
+                    celery{count,2}=3;
+                else
+                    set(static43, 'String', num2str(board(4,3)))
+                end
+                
+                if board(4,4) == 0
+                    set(static44, 'String', '')
+                    count = count+1;
+                    celery{count,1}=4;
+                    celery{count,2}=4;
+                else
+                    set(static44, 'String', num2str(board(4,4)))
+                end
                     
     end
 
-  function keyDownListener(source,eventdata) %loop requirement
+  function keyDownListener(source,eventdata)
+      
+      array=[0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0];
       
     switch eventdata.Key
       case 'w' 
           disp('Up');
-          array=board;
+          
+          for c=1:4 %loop requirement
+              count=0;
+              celery=cell(1);
+              for r=1:4
+                  if board(r,c)
+                      count=count+1;
+                      celery{count}=r;
+                  end
+              end
+              
+              for i=1:count
+                  if 
+                  
+              end
+            
+              
+              
+          end
           update(array)
           disp('Up');
 
@@ -253,7 +410,6 @@ function update(array) %function requirement
         
     % Callback function for buttons
     function save(source,eventdata) %data write requirement
-        fclose('all');
         fid = fopen('game.txt','w');
         if fid>2
             for r = 1:4
@@ -263,6 +419,7 @@ function update(array) %function requirement
             end
         end
         fclose(fid);
+        set(f,'KeyPressFcn',@keyDownListener)
     end
 
     function load(source,eventdata) %data read requirement
