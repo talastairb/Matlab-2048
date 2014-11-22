@@ -373,7 +373,7 @@ function update(array) %function requirement
                       celery{count}=board(r,c);
                   end
               end
-              
+              if count>0
               for i=2:count %merges same blocks
                   if celery{i-1} == celery{i}
                       celery{i-1}=2*celery{i-1};
@@ -383,6 +383,7 @@ function update(array) %function requirement
               for j=1:length(celery) %puts updated blockchain in new array
                   array(j,c)=celery{j};
               end
+          end
           end
           update(array)
           disp('Up');
