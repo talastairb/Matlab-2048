@@ -6,8 +6,9 @@ View this file as raw text for proper formatting
 
 
 Known issues:
-Numbers spawn when there are invalid moves-minor
-Save/Load functions freeze the program-major
+Numbers spawn when there are invalid moves-minor issue
+Save/Load functions freeze the program-major issue
+move down and move right switch the board-minor issue
 
 Requirements:
 Matlab event-driven GUI (implemented; functions)
