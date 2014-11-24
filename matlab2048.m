@@ -810,11 +810,9 @@ end
     end
 
     function load(source,eventdata) %data read requirement
-        fclose('all');
         fid = fopen('save.txt','r');
         if fid>2
             a = textscan(fid,'%d');
-            
             count=1;
             for r = 1:4
                 for c = 1:4
@@ -823,7 +821,7 @@ end
                 end
             end
         end
-        fclose(fid);
+        fclose('all');
         close; %super sketch method of making this work
         matlab2048(board); % basically closes the gui and reopens it with the new board
     end
