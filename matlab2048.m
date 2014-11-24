@@ -11,9 +11,9 @@ f = figure('Position', [0 0 400 500], 'Visible', 'off', 'MenuBar', 'none', 'Name
 
 movegui(f, 'center')
        
-score=0;
+score=0; %possibly implemented in future iterations
 
-static11 = uicontrol('Style', 'text', 'Position', [000 400 100 100], 'String', '');
+static11 = uicontrol('Style', 'text', 'Position', [000 400 100 100], 'String', ''); %these create where the numbers go
 static12 = uicontrol('Style', 'text', 'Position', [100 400 100 100], 'String', '');
 static13 = uicontrol('Style', 'text', 'Position', [200 400 100 100], 'String', '');
 static14 = uicontrol('Style', 'text', 'Position', [300 400 100 100], 'String', '');
