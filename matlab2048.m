@@ -44,8 +44,6 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
         board=varargin{1};
         update(board);
     end
-        
-random(board);
 
     function update(array) %updates the board but doesn't add a random number
         board=array;
