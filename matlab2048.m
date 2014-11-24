@@ -428,9 +428,10 @@ function update(array) %function requirement
                       end
                   end
               end
+              celery2=fliplr(celery);
               if count>0 %if there is stuff that could move
                   for j=1:count %puts updated blockchain in new array
-                      array((5-j),c)=celery{j};
+                      array((5-j),c)=celery2{j};
                   end
               end
           end
@@ -453,9 +454,10 @@ function update(array) %function requirement
                       end
                   end
               end
+              celery2=fliplr(celery);
               if count>0 %if there is stuff that could move
                   for j=1:length(celery) %puts updated blockchain in new array
-                      array(r,(5-j))=celery{j};
+                      array(r,(5-j))=celery2{j};
                   end
               end
           end
