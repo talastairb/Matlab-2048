@@ -421,14 +421,14 @@ function update(array) %function requirement
                       celery{count}=board(r,c);
                   end
               end
+              celery2=fliplr(celery);
               if count>1 %if there is stuff that could merge
                   for i=2:count %merges same blocks
-                      if celery{i-1} == celery{i}
-                          celery{i-1}=2*celery{i-1};
+                      if celery2{i-1} == celery2{i}
+                          celery2{i-1}=2*celery2{i-1};
                       end
                   end
               end
-              celery2=fliplr(celery);
               if count>0 %if there is stuff that could move
                   for j=1:count %puts updated blockchain in new array
                       array((5-j),c)=celery2{j};
@@ -447,14 +447,14 @@ function update(array) %function requirement
                       celery{count}=board(r,c);
                   end
               end
+              celery2=fliplr(celery);
               if count>1 %if there is stuff that could merge
                   for i=2:count %merges same blocks
-                      if celery{i-1} == celery{i}
-                          celery{i-1}=2*celery{i-1};
+                      if celery2{i-1} == celery2{i}
+                          celery2{i-1}=2*celery2{i-1};
                       end
                   end
               end
-              celery2=fliplr(celery);
               if count>0 %if there is stuff that could move
                   for j=1:length(celery) %puts updated blockchain in new array
                       array(r,(5-j))=celery2{j};
