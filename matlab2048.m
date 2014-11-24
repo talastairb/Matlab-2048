@@ -795,7 +795,7 @@ end
         
     % Callback function for buttons
     function save(source,eventdata) %data write requirement
-        fid = fopen('game.txt','w');
+        fid = fopen('save.txt','w');
         if fid>2
             for r = 1:4
                 for c = 1:4
@@ -811,7 +811,7 @@ end
 
     function load(source,eventdata) %data read requirement
         fclose('all');
-        fid = fopen('game.txt','r');
+        fid = fopen('save.txt','r');
         if fid>2
             a = textscan(fid,'%d');
             
