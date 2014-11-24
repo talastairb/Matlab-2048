@@ -1,7 +1,7 @@
 %{
 Matlab 2048
 Theodore Bastian (tab111)
-Cole Williams
+Cole Williams (cxw439)
 ENGR131
 %}
 
