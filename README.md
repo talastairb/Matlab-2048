@@ -1,23 +1,25 @@
 Matlab-Final-Project
 ====================
+Theodore Bastian (tab111)
+Cole Williams (cxw439)
 This is our final project for ENGR131
 
 View this file as raw text for proper formatting
 
 
 Known issues:
-Numbers spawn when there are invalid moves
-Needs to remove blocks when they merge (0044 -> goes to 0048 should be 0008)
-There is no game over notification
-Text should be bigger and have background colors
-Save/load update generates random position
+     Numbers spawn when there are invalid moves
+     Needs to remove blocks when they merge (0044 -> goes to 0048 should be 0008)
+     There is no game over notification
+     Text should be bigger and have background colors
+     
 
 
 Requirements:
-Matlab event-driven GUI (implemented; functions)
-A function that receives at least one argument (implemented; functions)
-Either an array of cells or an array of structs (implemented; functions)
-A data file that is read using either ?fscanf? or ?textscan? and modified by the program and rewritten using ?fprintf?. (implemented; does not function)
+     Matlab event-driven GUI
+     A function that receives at least one argument
+     Either an array of cells or an array of structs
+     A data file that is read using either fscanf or textscan and modified by the program and rewritten using fprintf
 
 Dev Phases:
      Proposal-Done
