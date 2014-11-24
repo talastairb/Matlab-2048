@@ -5,13 +5,13 @@ Cole Williams
 ENGR131
 %}
 
-function gui
+function matlab2048(varargin)
 
 f = figure('Position', [0 0 400 500], 'Visible', 'off', 'MenuBar', 'none', 'Name', '2048'); %gui requirement
 
 movegui(f, 'center')
        
-score=0; %possibly implemented in future iterations
+score=0; %possibly implemented in future versions
 
 static11 = uicontrol('Style', 'text', 'Position', [000 400 100 100], 'String', ''); %these create where the numbers go
 static12 = uicontrol('Style', 'text', 'Position', [100 400 100 100], 'String', '');
@@ -37,15 +37,17 @@ set(f,'KeyPressFcn',@keyDownListener)
 
 set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displaying an unfinished version
 
-    
-board=[0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0]; %represents the value in each board position
-
+    if nargin==0
+        board=[0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0]; %represents the value in each board position
+    else
+        board=varargin{1};
+    end
+        
 update(board);
 
 
 
 function update(array) %function requirement
-        
         %refreshes board
         
         board=array;
@@ -356,13 +358,13 @@ function update(array) %function requirement
                     
     end
 
-  function keyDownListener(source,eventdata)
+  function keyDownListener(source,eventdata) %this deals with movement
       
       array=[0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0];
       
     switch eventdata.Key
-      case 'w' 
-          for c=1:4 %loop requirement
+        case 'w' 
+            for c=1:4 %loop requirement
               count=0;
               celery=cell(1);
               for r=1:4 %figures out how many blocks are filled per column
@@ -383,11 +385,11 @@ function update(array) %function requirement
                       array(j,c)=celery{j};
                   end
               end
-          end
-          update(array);
+            end
+            update(array);
 
-      case 'a'
-          for r=1:4 %loop requirement
+        case 'a'
+            for r=1:4 %loop requirement
               count=0;
               celery=cell(1);
               for c=1:4 %figures out how many blocks are filled per column
@@ -408,11 +410,11 @@ function update(array) %function requirement
                       array(r,j)=celery{j};
                   end
               end
-          end
-          update(array);
+            end
+            update(array);
 
-      case 's'
-          for c=1:4 %loop requirement
+        case 's'
+            for c=1:4 %loop requirement
               count=0;
               celery=cell(1);
               for r=1:4 %figures out how many blocks are filled per column
@@ -434,11 +436,11 @@ function update(array) %function requirement
                       array((5-j),c)=celery2{j};
                   end
               end
-          end
-          update(array);
+            end
+            update(array);
           
-      case 'd'
-          for r=1:4 %loop requirement
+        case 'd'
+            for r=1:4 %loop requirement
               count=0;
               celery=cell(1);
               for c=1:4 %figures out how many blocks are filled per column
@@ -460,8 +462,11 @@ function update(array) %function requirement
                       array(r,(5-j))=celery2{j};
                   end
               end
-          end
-          update(array);
+            end
+            update(array);
+          
+        case 'q' %quit
+            close;
           
     end
     
@@ -480,6 +485,7 @@ function update(array) %function requirement
         end
         fclose(fid);
         set(f,'KeyPressFcn',@keyDownListener)
+        matlab2048(board)
     end
 
     function load(source,eventdata) %data read requirement
@@ -487,14 +493,18 @@ function update(array) %function requirement
         fid = fopen('game.txt','r');
         if fid>2
             a = textscan(fid,'%d');
+            
             count=1;
             for r = 1:4
                 for c = 1:4
-                    board(r,c)=a(count)
+                    board(r,c)=a{1}(count);
+                    count=count+1;
                 end
             end
         end
         fclose(fid);
+        close; %super sketch method of making this work
+        matlab2048(board); % basically closes the program and reopens it with the new board
     end
 
 end
