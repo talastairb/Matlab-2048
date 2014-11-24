@@ -26,8 +26,8 @@ Dev Phases:
      Overall program: The GUI should run without errors, but the controls do not need to do anything.
      Loop: The header and ?end? should be in the correct place, but the loop does not need to run or contain anything in the body.
      Function: There should be a function header and a function call, but the function does not need to contain anything.
-     Cell/struct array: The array should have some data in it, but you don?t have to use it. The data can be ?hardcoded? with temporary values.
-     Data file: The file should have some data in it, but you don?t have to use it. The data can be ?hardcoded? with temporary values.
+     Cell/struct array: The array should have some data in it, but you don?t have to use it. The data can be hardcoded with temporary values.
+     Data file: The file should have some data in it, but you don?t have to use it. The data can be hardcoded with temporary values.
 
      Beta-Done
      Overall program: Should run without errors. At least one control should do something.
