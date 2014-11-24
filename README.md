@@ -7,8 +7,10 @@ View this file as raw text for proper formatting
 
 Known issues:
 Numbers spawn when there are invalid moves
-Needs to remove blocks when they merge (0044 goes to 0048 should be 0008)
+Needs to remove blocks when they merge (0044 -> goes to 0048 should be 0008)
 There is no game over notification
+Text should be bigger and have background colors
+Save/load update generates random position
 
 
 Requirements:
@@ -27,18 +29,18 @@ Dev Phases:
      Cell/struct array: The array should have some data in it, but you don?t have to use it. The data can be ?hardcoded? with temporary values.
      Data file: The file should have some data in it, but you don?t have to use it. The data can be ?hardcoded? with temporary values.
 
-TO FINISH     Beta
+     Beta-Done
      Overall program: Should run without errors. At least one control should do something.
      The loop should do something, even if it doesn?t work correctly.
      Function: The function should be called and do something, even if it doesn?t work correctly.
      Cell/struct array: The array should be used in some way by using the values in it.
-TO FIX     Data file: Should be reading and writing the file but don?t have to use the values yet.
+     Data file: Should be reading and writing the file but don?t have to use the values yet.
 
-TODO     Final
+     Final-Done
      Overall program: Should run without errors. All controls should work.
      Loop: Should work correctly.
      Function: Should be called and work correctly.
      Cell/struct array: Should be used correctly.
-TODO     Data file: Should be reading (using) and writing (changing) the values in it.
+     Data file: Should be reading (using) and writing (changing) the values in it.
 
 -Alastair

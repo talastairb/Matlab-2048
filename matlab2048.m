@@ -485,7 +485,8 @@ function update(array) %function requirement
         end
         fclose(fid);
         set(f,'KeyPressFcn',@keyDownListener)
-        matlab2048(board)
+        close; %super sketch method of making this work
+        matlab2048(board); % basically closes the program and reopens it with the new board
     end
 
     function load(source,eventdata) %data read requirement
