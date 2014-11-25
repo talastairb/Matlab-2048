@@ -13,7 +13,7 @@ Known issues:
      There is no game over notification
      Text should be bigger and have background colors
      
-
+     
 
 Requirements:
      Matlab event-driven GUI
