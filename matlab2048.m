@@ -197,8 +197,9 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
                 end
     end
 
-
     function random(array) %adds a random number then refreshes the board
+        
+        old=board;
         board=array;
 
         count=0;
@@ -207,7 +208,7 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
           
                 if board(1,1) == 0
                     set(static11, 'String', '')
-                    count =count+1;
+                    count = count+1;
                     celery{count,1}=1;
                     celery{count,2}=1;
                 else
@@ -216,7 +217,7 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
                 
                 if board(1,2) == 0
                     set(static12, 'String', '')
-                    count =count+1;
+                    count = count+1;
                     celery{count,1}=1;
                     celery{count,2}=2;
                 else
@@ -225,7 +226,7 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
                 
                 if board(1,3) == 0
                     set(static13, 'String', '')
-                    count =count+1;
+                    count = count+1;
                     celery{count,1}=1;
                     celery{count,2}=3;
                 else
@@ -234,7 +235,7 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
                 
                 if board(1,4) == 0
                     set(static14, 'String', '')
-                    count =count+1;
+                    count = count+1;
                     celery{count,1}=1;
                     celery{count,2}=4;
                 else
@@ -359,14 +360,20 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
                     end
                 end
                 
-                %gameover
+                %{
+                if count == 0 %if passed a full board
+                    close;
+                    gameOver(); %game over logic
+                end
+                
+                %}
                 
            update(board);
     end
 
     function keyDownListener(source,eventdata) %this deals with movement
       
-      array=[0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0];
+    array=[0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0];
       
     switch eventdata.Key
         case 'w' 
@@ -478,7 +485,7 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
     
   end
         
-    % Callback function for buttons
+    % Callback functions for buttons
     function save(source,eventdata) %data write requirement
         fid = fopen('save.txt','w');
         if fid>2
