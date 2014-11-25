@@ -364,7 +364,7 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
            update(board);
     end
 
-  function keyDownListener(source,eventdata) %this deals with movement
+    function keyDownListener(source,eventdata) %this deals with movement
       
       array=[0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0];
       
@@ -477,7 +477,6 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
     end
     
   end
-
         
     % Callback function for buttons
     function save(source,eventdata) %data write requirement
