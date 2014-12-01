@@ -12,6 +12,8 @@ f = figure('Position', [0 0 400 500], 'Visible', 'off', 'MenuBar', 'none', 'Name
 movegui(f, 'center')
        
 score=0; %possibly implemented in future versions
+%gameover option will be added too
+%also, the move algorithm is flawed
 
 static11 = uicontrol('Style', 'text', 'Position', [000 400 100 100], 'String', ''); %these create where the numbers go
 static12 = uicontrol('Style', 'text', 'Position', [100 400 100 100], 'String', '');
@@ -45,7 +47,7 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
         update(board);
     end
 
-    function update(array) %function requirement
+    function update(array) %refreshes the board. fulfills the function requirement
         board=array;
 
         count=0;
@@ -197,7 +199,7 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
                 end
     end
 
-    function random(array) %adds a random number then refreshes the board
+    function random(array) %adds a random number then refreshes the board.  also fulfills the function requirement
         
         old=board;
         board=array;
@@ -470,7 +472,7 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
                       end
                   end
               end
-              if count>0 %if there is stuff that could move
+              if count>0 %if therse is stuff that could move
                   for j=1:length(celery) %puts updated blockchain in new array
                       array(r,(5-j))=celery2{j};
                   end
