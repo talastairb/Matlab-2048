@@ -5,6 +5,10 @@ Cole Williams (cxw439)
 ENGR131
 %}
 
+%some required elements are commented!
+%at least one of each type is marked
+%search for the word requirement to see them
+
 function matlab2048(varargin)
 
 f = figure('Position', [0 0 400 500], 'Visible', 'off', 'MenuBar', 'none', 'Name', '2048'); %gui requirement
