@@ -66,25 +66,39 @@ end
         else
             set(static11, 'String', num2str(board(1,1)))
             %start color stuff
-            colorArray = [1 1 1]; 
+            colorArray = [0 0 0];%black
             switch board(1,1)
                 case 2
-                    colorArray = [.6 .6 0];%off yellow
+                    %colorArray = [.9 .9 .7];%tan
+                    colorArray = [1 .2 .8];%tan
                 case 4
-                    colorArray = [.9 .9 0];%yellow
+                    colorArray = [.9 .9 .5];
                 case 8
-                    
+                    colorArray = [.9 .7 .5];%coral
                 case 16
-                    
+                    colorArray = [.9 .5 .5];
                 case 32
-                    
+                    colorArray = [.9 .3 .3];
                 case 64
-                    
+                    colorArray = [.9 .1 .1];%red
                 case 128
-                    
-                    
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
                 otherwise
-                    
+                    colorArray = [1 1 1];%white
             end
             set(static11, 'BackgroundColor', colorArray)
             %end color stuff
