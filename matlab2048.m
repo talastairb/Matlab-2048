@@ -65,25 +65,6 @@ end
             celery{count,2}=1;
         else
             set(static11, 'String', num2str(board(1,1)))
-            %{
-            if board(1,1) == 2 %testing colors
-                set(static11, 'BackgroundColor', [.6 .6 0])%off yellow
-            elseif board(1,1) == 4
-                set(static11, 'BackgroundColor', [.9 .9 0])%yellow
-            elseif board(1,1) == 8
-                set(static11, 'BackgroundColor', 'b')
-            elseif board(1,1) == 16
-                set(static11, 'BackgroundColor', 'g')
-            elseif board(1,1) == 32
-                set(static11, 'BackgroundColor', 'm')
-            elseif board(1,1) == 32
-                set(static11, 'BackgroundColor', 'm')    
-            elseif board(1,1) == 32
-                set(static11, 'BackgroundColor', 'm')
-            elseif board(1,1) == 32
-                set(static11, 'BackgroundColor', 'm')
-            end
-            %}
             
             colorArray = [1 1 1];
             switch board(1,1)
@@ -92,6 +73,15 @@ end
                 case 4
                     colorArray = [.9 .9 0];%yellow
                 case 8
+                    
+                case 16
+                    
+                case 32
+                    
+                case 64
+                    
+                case 128
+                    
                     
                 otherwise
                     
