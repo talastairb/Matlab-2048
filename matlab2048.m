@@ -19,22 +19,22 @@ score=0; %possibly implemented in future versions
 %gameover option will be added too
 %also, the move algorithm is flawed
 
-static11 = uicontrol('Style', 'text', 'Position', [000 400 100 100], 'String', ''); %these create where the numbers go
-static12 = uicontrol('Style', 'text', 'Position', [100 400 100 100], 'String', '');
-static13 = uicontrol('Style', 'text', 'Position', [200 400 100 100], 'String', '');
-static14 = uicontrol('Style', 'text', 'Position', [300 400 100 100], 'String', '');
-static21 = uicontrol('Style', 'text', 'Position', [000 300 100 100], 'String', '');
-static22 = uicontrol('Style', 'text', 'Position', [100 300 100 100], 'String', '');
-static23 = uicontrol('Style', 'text', 'Position', [200 300 100 100], 'String', '');
-static24 = uicontrol('Style', 'text', 'Position', [300 300 100 100], 'String', '');
-static31 = uicontrol('Style', 'text', 'Position', [000 200 100 100], 'String', '');
-static32 = uicontrol('Style', 'text', 'Position', [100 200 100 100], 'String', '');
-static33 = uicontrol('Style', 'text', 'Position', [200 200 100 100], 'String', '');
-static34 = uicontrol('Style', 'text', 'Position', [300 200 100 100], 'String', '');
-static41 = uicontrol('Style', 'text', 'Position', [000 100 100 100], 'String', '');
-static42 = uicontrol('Style', 'text', 'Position', [100 100 100 100], 'String', '');
-static43 = uicontrol('Style', 'text', 'Position', [200 100 100 100], 'String', '');
-static44 = uicontrol('Style', 'text', 'Position', [300 100 100 100], 'String', '');
+static11 = uicontrol('Style', 'text', 'Position', [000 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w'); %these create where the numbers go
+static12 = uicontrol('Style', 'text', 'Position', [100 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w'); %http://www.mathworks.com/help/matlab/ref/uicontrol-properties.html
+static13 = uicontrol('Style', 'text', 'Position', [200 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static14 = uicontrol('Style', 'text', 'Position', [300 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static21 = uicontrol('Style', 'text', 'Position', [000 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static22 = uicontrol('Style', 'text', 'Position', [100 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static23 = uicontrol('Style', 'text', 'Position', [200 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static24 = uicontrol('Style', 'text', 'Position', [300 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static31 = uicontrol('Style', 'text', 'Position', [000 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static32 = uicontrol('Style', 'text', 'Position', [100 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static33 = uicontrol('Style', 'text', 'Position', [200 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static34 = uicontrol('Style', 'text', 'Position', [300 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static41 = uicontrol('Style', 'text', 'Position', [000 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static42 = uicontrol('Style', 'text', 'Position', [100 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static43 = uicontrol('Style', 'text', 'Position', [200 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static44 = uicontrol('Style', 'text', 'Position', [300 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
 
 button1 = uicontrol('Style', 'pushbutton', 'String', 'Save', 'Position',[000 000 100 050], 'Callback', @save);
 button2 = uicontrol('Style', 'pushbutton', 'String', 'Load', 'Position',[100 000 100 050], 'Callback', @load);
@@ -59,12 +59,44 @@ end
         celery=cell(1,2); %cell array requirement
         
         if board(1,1) == 0
-            set(static11, 'String', '')
+            set(static11, 'String', '', 'BackgroundColor', 'w')
             count =count+1;
             celery{count,1}=1;
             celery{count,2}=1;
         else
             set(static11, 'String', num2str(board(1,1)))
+            %{
+            if board(1,1) == 2 %testing colors
+                set(static11, 'BackgroundColor', [.6 .6 0])%off yellow
+            elseif board(1,1) == 4
+                set(static11, 'BackgroundColor', [.9 .9 0])%yellow
+            elseif board(1,1) == 8
+                set(static11, 'BackgroundColor', 'b')
+            elseif board(1,1) == 16
+                set(static11, 'BackgroundColor', 'g')
+            elseif board(1,1) == 32
+                set(static11, 'BackgroundColor', 'm')
+            elseif board(1,1) == 32
+                set(static11, 'BackgroundColor', 'm')    
+            elseif board(1,1) == 32
+                set(static11, 'BackgroundColor', 'm')
+            elseif board(1,1) == 32
+                set(static11, 'BackgroundColor', 'm')
+            end
+            %}
+            
+            colorArray = [1 1 1];
+            switch board(1,1)
+                case 2
+                    colorArray = [.6 .6 0];%off yellow
+                case 4
+                    colorArray = [.9 .9 0];%yellow
+                case 8
+                    
+                otherwise
+                    
+            end
+            set(static11, 'BackgroundColor', colorArray)
         end
         
         if board(1,2) == 0
@@ -203,7 +235,7 @@ end
         end
     end
 
-    function random(array) %adds a random number then refreshes the board.  also fulfills the function requirement
+    function random(array) %adds a random number then refreshes the board (via the update method).  also fulfills the function requirement
         
         old=board;
         board=array;
