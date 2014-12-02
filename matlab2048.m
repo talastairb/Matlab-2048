@@ -65,8 +65,8 @@ end
             celery{count,2}=1;
         else
             set(static11, 'String', num2str(board(1,1)))
-            
-            colorArray = [1 1 1];
+            %start color stuff
+            colorArray = [1 1 1]; 
             switch board(1,1)
                 case 2
                     colorArray = [.6 .6 0];%off yellow
@@ -87,6 +87,7 @@ end
                     
             end
             set(static11, 'BackgroundColor', colorArray)
+            %end color stuff
         end
         
         if board(1,2) == 0
