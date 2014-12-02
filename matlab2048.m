@@ -16,8 +16,7 @@ f = figure('Position', [0 0 400 500], 'Visible', 'off', 'MenuBar', 'none', 'Name
 movegui(f, 'center')
 
 score=0; %possibly implemented in future versions
-%gameover option will be added too
-%also, the move algorithm is flawed
+%the move algorithm is flawed.  it should be fixed at some point
 
 static11 = uicontrol('Style', 'text', 'Position', [000 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center'); %these create where the numbers go
 static12 = uicontrol('Style', 'text', 'Position', [100 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center'); %http://www.mathworks.com/help/matlab/ref/uicontrol-properties.html
