@@ -10,8 +10,7 @@ View this file as raw text for proper formatting
 Known issues:
      Numbers spawn when there are invalid moves
      Needs to remove blocks when they merge (0044 -> goes to 0048 should be 0008)
-     There is no game over notification
-     Text should be bigger and have background colors
+     Text could be bigger and have background colors
      
      
 
