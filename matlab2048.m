@@ -16,7 +16,8 @@ f = figure('Position', [0 0 400 500], 'Visible', 'off', 'MenuBar', 'none', 'Name
 movegui(f, 'center')
 
 score=0; %possibly implemented in future versions
-%the move algorithm is flawed.  it should be fixed at some point
+%the move algorithm is partly flawed for moving down and right.  it should be fixed at some point
+%also the game throws errors trying to update when the gameover method is called and keys are pressed
 
 static11 = uicontrol('Style', 'text', 'Position', [000 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center'); %these create where the numbers go
 static12 = uicontrol('Style', 'text', 'Position', [100 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center'); %http://www.mathworks.com/help/matlab/ref/uicontrol-properties.html
@@ -932,17 +933,22 @@ end
         end
         
         if count >0 %adds a random number if the board is not filled
-            x=randi(count);
+            x=randi(count);%random unfilled board position
             
-            if randi(3)==1 %will be displayed next turn
-                board(celery{x,1},celery{x,2})=4;
-            else
-                board(celery{x,1},celery{x,2})=2;
+            switch randi(3) % options for a spawn
+                case 1
+                    board(celery{x,1},celery{x,2})=4;
+                case 2
+                    board(celery{x,1},celery{x,2})=2;
+                case 3
+                    board(celery{x,1},celery{x,2})=2;
+                case 4
+                    board(celery{x,1},celery{x,2})=0;%no spawn-disabled
             end
         end
         
-        if count == -1 %if passed a full board
-            close; %disabled for debugging-set -1 to 0 to enable once move algorithm is fixed because in unfixed version, valid moves are still possible with a filled board
+        if count == 0 %if passed a full board
+            close;
             gameOverMenu(); %game over logic
         end
         
@@ -972,7 +978,7 @@ end
                             end
                         end
                         %}
-                        i=2 %block merge attempted fix
+                        i=2; %block merge attempted fix
                         count2=count;
                         while i <= count2 %merges same blocks
                             if celery{i-1} == celery{i}%this needs to be fixed--DEBUG
@@ -1003,7 +1009,7 @@ end
                         end
                     end
                     if count>1 %if there is stuff that could merge
-                        i=2 %block merge attempted fix
+                        i=2; %block merge attempted fix
                         count2=count;
                         while i <= count2 %merges same blocks
                             if celery{i-1} == celery{i}%this needs to be fixed--DEBUG
