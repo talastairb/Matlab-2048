@@ -965,10 +965,23 @@ end
                         end
                     end
                     if count>1 %if there is stuff that could merge
+                        %{
                         for i=2:count %merges same blocks
                             if celery{i-1} == celery{i}%this needs to be fixed--DEBUG
                                 celery{i-1}=2*celery{i-1};%one merged block is doubled but the other needs to be removed
                             end
+                        end
+                        %}
+                        i=2 %block merge attempted fix
+                        count2=count;
+                        while i <= count2 %merges same blocks
+                            if celery{i-1} == celery{i}%this needs to be fixed--DEBUG
+                                celery{i-1}=2*celery{i-1};%one merged block is doubled but the other needs to be removed
+                                celery(i)=[]; %remove the block from the cell array
+                                count2=count2-1;%subtract one from the length of count2
+                                i=i+1;%skip the next block
+                            end
+                            i=i+1;%add one to i
                         end
                     end
                     if count>0 %if there is stuff that could move
@@ -990,10 +1003,16 @@ end
                         end
                     end
                     if count>1 %if there is stuff that could merge
-                        for i=2:count %merges same blocks
-                            if celery{i-1} == celery{i}
-                                celery{i-1}=2*celery{i-1};
+                        i=2 %block merge attempted fix
+                        count2=count;
+                        while i <= count2 %merges same blocks
+                            if celery{i-1} == celery{i}%this needs to be fixed--DEBUG
+                                celery{i-1}=2*celery{i-1};%one merged block is doubled but the other needs to be removed
+                                celery(i)=[]; %remove the block from the cell array
+                                count2=count2-1;%subtract one from the length of count2
+                                i=i+1;%skip the next block
                             end
+                            i=i+1;%add one to i
                         end
                     end
                     if count>0 %if there is stuff that could move
