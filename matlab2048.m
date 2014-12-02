@@ -362,13 +362,10 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
                     end
                 end
                 
-                %{
                 if count == 0 %if passed a full board
                     close;
-                    gameOver(); %game over logic
+                    gameOverMenu(); %game over logic
                 end
-                
-                %}
                 
            update(board);
     end
@@ -519,5 +516,25 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
         close; %super sketch method of making this work
         matlab2048(board); % basically closes the gui and reopens it with the new board
     end
+
+
+function gameOverMenu()
+f = figure('Position', [0 0 300 300], 'Visible', 'off');
+movegui(f, 'center');
+text1 = uicontrol('Style', 'text', 'Position', [0 200 300 100], 'String', 'GAME OVER!!!');
+button1 = uicontrol('Style', 'pushbutton', 'String', 'QUIT', 'Callback', @callbackfn1, 'Position', [20 50 100 50]);
+button2 = uicontrol('Style', 'pushbutton', 'String', 'TRY AGAIN', 'Callback', @callbackfn2, 'Position', [180 50 100 50]);
+set(f, 'Visible', 'on')
+
+function callbackfn1(source, eventdata)
+    close all
+end
+
+function callbackfn2(source, eventdata)
+    close all
+    matlab2048()
+end
+
+end
 
 end
