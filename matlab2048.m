@@ -11,7 +11,7 @@ ENGR131
 
 function matlab2048(varargin)
 
-f = figure('Position', [0 0 400 500], 'Visible', 'off', 'MenuBar', 'none', 'Name', '2048'); %gui requirement
+f = figure('Position', [0 0 400 500], 'Visible', 'off', 'MenuBar', 'none', 'Name', '2048', 'Color', [.9 .9 .9], 'ToolBar', 'none'); %gui requirement
 
 movegui(f, 'center')
 
@@ -19,25 +19,25 @@ score=0; %possibly implemented in future versions
 %gameover option will be added too
 %also, the move algorithm is flawed
 
-static11 = uicontrol('Style', 'text', 'Position', [000 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w'); %these create where the numbers go
-static12 = uicontrol('Style', 'text', 'Position', [100 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w'); %http://www.mathworks.com/help/matlab/ref/uicontrol-properties.html
-static13 = uicontrol('Style', 'text', 'Position', [200 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static14 = uicontrol('Style', 'text', 'Position', [300 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static21 = uicontrol('Style', 'text', 'Position', [000 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static22 = uicontrol('Style', 'text', 'Position', [100 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static23 = uicontrol('Style', 'text', 'Position', [200 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static24 = uicontrol('Style', 'text', 'Position', [300 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static31 = uicontrol('Style', 'text', 'Position', [000 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static32 = uicontrol('Style', 'text', 'Position', [100 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static33 = uicontrol('Style', 'text', 'Position', [200 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static34 = uicontrol('Style', 'text', 'Position', [300 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static41 = uicontrol('Style', 'text', 'Position', [000 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static42 = uicontrol('Style', 'text', 'Position', [100 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static43 = uicontrol('Style', 'text', 'Position', [200 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
-static44 = uicontrol('Style', 'text', 'Position', [300 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w');
+static11 = uicontrol('Style', 'text', 'Position', [000 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center'); %these create where the numbers go
+static12 = uicontrol('Style', 'text', 'Position', [100 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center'); %http://www.mathworks.com/help/matlab/ref/uicontrol-properties.html
+static13 = uicontrol('Style', 'text', 'Position', [200 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static14 = uicontrol('Style', 'text', 'Position', [300 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static21 = uicontrol('Style', 'text', 'Position', [000 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static22 = uicontrol('Style', 'text', 'Position', [100 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static23 = uicontrol('Style', 'text', 'Position', [200 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static24 = uicontrol('Style', 'text', 'Position', [300 300 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static31 = uicontrol('Style', 'text', 'Position', [000 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static32 = uicontrol('Style', 'text', 'Position', [100 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static33 = uicontrol('Style', 'text', 'Position', [200 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static34 = uicontrol('Style', 'text', 'Position', [300 200 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static41 = uicontrol('Style', 'text', 'Position', [000 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static42 = uicontrol('Style', 'text', 'Position', [100 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static43 = uicontrol('Style', 'text', 'Position', [200 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
+static44 = uicontrol('Style', 'text', 'Position', [300 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
 
-button1 = uicontrol('Style', 'pushbutton', 'String', 'Save', 'Position',[000 000 100 050], 'Callback', @save);
-button2 = uicontrol('Style', 'pushbutton', 'String', 'Load', 'Position',[100 000 100 050], 'Callback', @load);
+button1 = uicontrol('Style', 'pushbutton', 'String', 'Save', 'Position',[75 000 100 050], 'Callback', @save);
+button2 = uicontrol('Style', 'pushbutton', 'String', 'Load', 'Position',[225 000 100 050], 'Callback', @load);
 
 set(f,'KeyPressFcn',@keyDownListener)
 
@@ -943,7 +943,7 @@ end
         end
         
         if count == -1 %if passed a full board
-            close; %disabled for debugging-set -1 to 0 once move algorithm is fixed
+            close; %disabled for debugging-set -1 to 0 to enable once move algorithm is fixed because in unfixed version, valid moves are still possible with a filled board
             gameOverMenu(); %game over logic
         end
         
@@ -967,8 +967,8 @@ end
                     end
                     if count>1 %if there is stuff that could merge
                         for i=2:count %merges same blocks
-                            if celery{i-1} == celery{i}
-                                celery{i-1}=2*celery{i-1};
+                            if celery{i-1} == celery{i}%this needs to be fixed--DEBUG
+                                celery{i-1}=2*celery{i-1};%one merged block is doubled but the other needs to be removed
                             end
                         end
                     end
