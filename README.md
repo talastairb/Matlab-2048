@@ -9,10 +9,7 @@ View this file as raw text for proper formatting
 
 Known issues:
      Numbers spawn when there are invalid moves
-     Needs to remove blocks when they merge (0044 -> goes to 0048 should be 0008)
-     Text could be bigger and have background colors
-     
-     
+     Needs to remove blocks when they merge after moving down or right (0044 -> goes to 0048 should be 0008)
 
 Requirements:
      Matlab event-driven GUI
