@@ -6,6 +6,12 @@ This is our final project for ENGR131
 
 View this file as raw text for proper formatting
 
+Instructions:
+WASD for up left down right
+Q to quit
+save button saves game to save.txt
+load button loads game from save.txt
+Play like regular 2048
 
 Known issues:
      Numbers spawn when there are invalid moves
