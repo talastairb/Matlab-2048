@@ -43,11 +43,11 @@ set(f,'KeyPressFcn',@keyDownListener)
 
 set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displaying an unfinished version
 
-if nargin==0
+if nargin==0%new game
     board=[0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0]; %represents the value in each board position
     random(board);
 else
-    board=varargin{1};
+    board=varargin{1};%start from a specific board layout
     update(board);
 end
 
