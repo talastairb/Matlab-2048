@@ -43,7 +43,7 @@ static = uicontrol('Style', 'text', 'Position', [50 50 300 50], 'String', 'WASD 
 button1 = uicontrol('Style', 'pushbutton', 'String', 'Save', 'Position',[75 000 100 050], 'Callback', @save);
 button2 = uicontrol('Style', 'pushbutton', 'String', 'Load', 'Position',[225 000 100 050], 'Callback', @load);
 
-set(f,'KeyPressFcn',@keyDownListener)
+set(f,'KeyPressFcn',@keyDownListener) %enables keylistener
 
 set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displaying an unfinished version
 
