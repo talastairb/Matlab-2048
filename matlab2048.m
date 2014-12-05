@@ -43,6 +43,8 @@ static = uicontrol('Style', 'text', 'Position', [50 50 300 50], 'String', 'WASD 
 button1 = uicontrol('Style', 'pushbutton', 'String', 'Save', 'Position',[75 000 100 050], 'Callback', @save);
 button2 = uicontrol('Style', 'pushbutton', 'String', 'Load', 'Position',[225 000 100 050], 'Callback', @load);
 
+won=0; %game has not yet been won
+
 set(f,'KeyPressFcn',@keyDownListener) %enables keylistener
 
 set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displaying an unfinished version
@@ -783,25 +785,26 @@ end
             set(static44, 'BackgroundColor', colorArray)
             %end color stuff
             
+        end
+        
         if count == 0 %if passed a full board
             %close;
             gameOverMenu(); %game over logic
         end
         
-        win=0;
-        for r = 1:4
-            for j = 1:4
-                if board(r,c)>2047
-                    win=1;
+        if won==0%has not been won yet-for speed after game has been run
+            for r = 1:4
+                for c = 1:4
+                    if board(r,c)>2047%checks all the board positions
+                        if won==0%could have more than 1 2048 tile made in a move 
+                            win()
+                            won=1;
+                        end
+                    end
                 end
             end
-        end
-        
-        if win == 1
-            win();
-        end
-        end
-    end
+        end %if won...
+    end %update
 
     function random(array) %adds a random number then refreshes the board (via the update method).  also fulfills the function requirement
         
@@ -969,11 +972,6 @@ end
                 case 4
                     board(celery{x,1},celery{x,2})=0;%no spawn
             end
-        end
-        
-        if count == 0 %if passed a full board
-            %close;
-            gameOverMenu(); %game over logic
         end
         
         update(board);
@@ -1215,19 +1213,20 @@ end
         end
     end %gameovermenu
 
-    function win(varargin)
-        f = figure('Position', [0 0 300 300], 'Visible', 'off');
-        movegui(f, 'center');
+    function win()
+        won=1;
+        w = figure('Position', [0 0 300 300], 'Visible', 'off');
+        movegui(w, 'center');
         text1 = uicontrol('Style', 'text', 'Position', [0 200 300 100], 'String', 'YOU WIN!!!');
-        button1 = uicontrol('Style', 'pushbutton', 'String', 'KEEP PLAYING', 'Callback', @callbackfn1, 'Position', [20 50 100 50]);
-        button2 = uicontrol('Style', 'pushbutton', 'String', 'PLAY AGAIN', 'Callback', @callbackfn2, 'Position', [180 50 100 50]);
-        set(f, 'Visible', 'on')
+        button1 = uicontrol('Style', 'pushbutton', 'String', 'KEEP PLAYING', 'Callback', @kp, 'Position', [20 50 100 50]);
+        button2 = uicontrol('Style', 'pushbutton', 'String', 'PLAY AGAIN', 'Callback', @pa, 'Position', [180 50 100 50]);
+        set(w, 'Visible', 'on')
         
-        function callbackfn1(source, eventdata)
+        function kp(source, eventdata)
             close;
         end
         
-        function callbackfn2(source, eventdata)
+        function pa(source, eventdata)
             close all
             matlab2048()
         end
