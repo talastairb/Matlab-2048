@@ -954,7 +954,7 @@ end
                 case 3
                     board(celery{x,1},celery{x,2})=2;
                 case 4
-                    board(celery{x,1},celery{x,2})=0;%no spawn-disabled
+                    board(celery{x,1},celery{x,2})=0;%no spawn
             end
         end
         
