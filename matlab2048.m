@@ -780,6 +780,11 @@ end
             end
             set(static44, 'BackgroundColor', colorArray)
             %end color stuff
+            
+        if count == 0 %if passed a full board
+            %close;
+            gameOverMenu(); %game over logic
+        end
         end
     end
 
@@ -1002,6 +1007,8 @@ end
                 end
                 if isequal(board, array) ==0 %if the original board and the new array arent the same, something has changed
                     random(array);
+                else
+                    update(array); %for calling game over method if the game is over
                 end
                 
             case 'a'
@@ -1035,6 +1042,8 @@ end
                 end
                 if isequal(board, array) ==0 %if the original board and the new array arent the same, something has changed
                     random(array);
+                else
+                    update(array); %for calling game over method if the game is over
                 end
                 
             case 's'
@@ -1061,27 +1070,26 @@ end
                         i=2; %block merge attempted fix
                         count2=count;
                         while i <= count2 %merges same blocks
-                            if celery2{i-1} == celery2{i}%this needs to be fixed--DEBUG
-                                celery2{i-1}=2*celery2{i-1}%one merged block is doubled but the other needs to be removed
-                                celery2(i)=[] %remove the block from the cell array
-                                count2=count2-1%subtract one from the length of count2
-                                i=i+1%skip the next block
+                            if celery2{i-1} == celery2{i};%this needs to be fixed--DEBUG
+                                celery2{i-1}=2*celery2{i-1};%one merged block is doubled but the other needs to be removed
+                                celery2(i)=[]; %remove the block from the cell array
+                                count2=count2-1;%subtract one from the length of count2
+                                i=i+1;%skip the next block
                             end
-                            i=i+1%add one to i
+                            i=i+1;%add one to i
                         end
                         %
                     end
                     if count>0 %if there is stuff that could move
                         for j=1:length(celery2) %puts updated blockchain in new array
-                            array
-                            celery
-                            celery2
-                            array((5-j),c)=celery2{j}
+                            array((5-j),c)=celery2{j};
                         end
                     end
                 end
                 if isequal(board, array) ==0 %if the original board and the new array arent the same, something has changed
                     random(array);
+                else
+                    update(array); %for calling game over method if the game is over
                 end
                 
             case 'd'
@@ -1107,13 +1115,13 @@ end
                         i=2; %block merge attempted fix
                         count2=count;
                         while i <= count2 %merges same blocks
-                            if celery2{i-1} == celery2{i}%this needs to be fixed--DEBUG
-                                celery2{i-1}=2*celery2{i-1}%one merged block is doubled but the other needs to be removed
-                                celery2(i)=[] %remove the block from the cell array
-                                count2=count2-1%subtract one from the length of count2
-                                i=i+1%skip the next block
+                            if celery2{i-1} == celery2{i};%this needs to be fixed--DEBUG
+                                celery2{i-1}=2*celery2{i-1};%one merged block is doubled but the other needs to be removed
+                                celery2(i)=[]; %remove the block from the cell array
+                                count2=count2-1;%subtract one from the length of count2
+                                i=i+1;%skip the next block
                             end
-                            i=i+1%add one to i
+                            i=i+1;%add one to i
                         end
                         %
                     end
@@ -1125,7 +1133,10 @@ end
                 end
                 if isequal(board, array) ==0 %if the original board and the new array arent the same, something has changed
                     random(array);
+                else
+                    update(array); %for calling game over method if the game is over
                 end
+                
                 
             case 'q' %quit
                 close;
