@@ -787,6 +787,19 @@ end
             %close;
             gameOverMenu(); %game over logic
         end
+        
+        win=0;
+        for r = 1:4
+            for j = 1:4
+                if board(r,c)>2047
+                    win=1;
+                end
+            end
+        end
+        
+        if win == 1
+            win();
+        end
         end
     end
 
@@ -1201,5 +1214,23 @@ end
             matlab2048()
         end
     end %gameovermenu
+
+    function win(varargin)
+        f = figure('Position', [0 0 300 300], 'Visible', 'off');
+        movegui(f, 'center');
+        text1 = uicontrol('Style', 'text', 'Position', [0 200 300 100], 'String', 'YOU WIN!!!');
+        button1 = uicontrol('Style', 'pushbutton', 'String', 'KEEP PLAYING', 'Callback', @callbackfn1, 'Position', [20 50 100 50]);
+        button2 = uicontrol('Style', 'pushbutton', 'String', 'PLAY AGAIN', 'Callback', @callbackfn2, 'Position', [180 50 100 50]);
+        set(f, 'Visible', 'on')
+        
+        function callbackfn1(source, eventdata)
+            close;
+        end
+        
+        function callbackfn2(source, eventdata)
+            close all
+            matlab2048()
+        end
+    end % win menu
 
 end
