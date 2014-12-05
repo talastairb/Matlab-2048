@@ -56,8 +56,736 @@ if nargin==0%new game
     end
 else
     board=varargin{1};%start from a specific board layout
-    update(board);
+    dumbupdate(board);
 end
+
+    function dumbupdate(array) %updates but doesnt check for endgame/win
+        board=array;
+        
+        count=0;
+        
+        celery=cell(1,2); %cell array requirement
+        
+        if board(1,1) == 0
+            set(static11, 'String', '', 'BackgroundColor', 'w')
+            count =count+1;
+            celery{count,1}=1;
+            celery{count,2}=1;
+        else
+            set(static11, 'String', num2str(board(1,1)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(1,1)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static11, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(1,2) == 0
+            set(static12, 'String', '', 'BackgroundColor', 'w')
+            count =count+1;
+            celery{count,1}=1;
+            celery{count,2}=2;
+        else
+            set(static12, 'String', num2str(board(1,2)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(1,2)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static12, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(1,3) == 0
+            set(static13, 'String', '', 'BackgroundColor', 'w')
+            count =count+1;
+            celery{count,1}=1;
+            celery{count,2}=3;
+        else
+            set(static13, 'String', num2str(board(1,3)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(1,3)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static13, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(1,4) == 0
+            set(static14, 'String', '', 'BackgroundColor', 'w')
+            count =count+1;
+            celery{count,1}=1;
+            celery{count,2}=4;
+        else
+            set(static14, 'String', num2str(board(1,4)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(1,4)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static14, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(2,1) == 0
+            set(static21, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=2;
+            celery{count,2}=1;
+        else
+            set(static21, 'String', num2str(board(2,1)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(2,1)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static21, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(2,2) == 0
+            set(static22, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=2;
+            celery{count,2}=2;
+        else
+            set(static22, 'String', num2str(board(2,2)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(2,2)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static22, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(2,3) == 0
+            set(static23, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=2;
+            celery{count,2}=3;
+        else
+            set(static23, 'String', num2str(board(2,3)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(2,3)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static23, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(2,4) == 0
+            set(static24, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=2;
+            celery{count,2}=4;
+        else
+            set(static24, 'String', num2str(board(2,4)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(2,4)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static24, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(3,1) == 0
+            set(static31, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=3;
+            celery{count,2}=1;
+        else
+            set(static31, 'String', num2str(board(3,1)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(3,1)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static31, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(3,2) == 0
+            set(static32, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=3;
+            celery{count,2}=2;
+        else
+            set(static32, 'String', num2str(board(3,2)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(3,2)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static32, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(3,3) == 0
+            set(static33, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=3;
+            celery{count,2}=3;
+        else
+            set(static33, 'String', num2str(board(3,3)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(3,3)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static33, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(3,4) == 0
+            set(static34, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=3;
+            celery{count,2}=4;
+        else
+            set(static34, 'String', num2str(board(3,4)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(3,4)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static34, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(4,1) == 0
+            set(static41, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=4;
+            celery{count,2}=1;
+        else
+            set(static41, 'String', num2str(board(4,1)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(4,1)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static41, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(4,2) == 0
+            set(static42, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=4;
+            celery{count,2}=2;
+        else
+            set(static42, 'String', num2str(board(4,2)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(4,2)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static42, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(4,3) == 0
+            set(static43, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=4;
+            celery{count,2}=3;
+        else
+            set(static43, 'String', num2str(board(4,3)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(4,3)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static43, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+        
+        if board(4,4) == 0
+            set(static44, 'String', '', 'BackgroundColor', 'w')
+            count = count+1;
+            celery{count,1}=4;
+            celery{count,2}=4;
+        else
+            set(static44, 'String', num2str(board(4,4)))
+            %start color stuff
+            colorArray = [0 0 0];%black
+            switch board(4,4)
+                case 2
+                    colorArray = [.9 .9 .7];%tan
+                case 4
+                    colorArray = [.9 .9 .5];
+                case 8
+                    colorArray = [.9 .7 .5];%coral
+                case 16
+                    colorArray = [.9 .5 .5];
+                case 32
+                    colorArray = [.9 .3 .3];
+                case 64
+                    colorArray = [.9 .1 .1];%red
+                case 128
+                    colorArray = [.9 .3 .1];
+                case 256
+                    colorArray = [.7 .5 .3];
+                case 512
+                    colorArray = [.7 .7 .3];%tan
+                case 1024
+                    colorArray = [.9 .9 .1];
+                case 2048
+                    colorArray = [1 1 0];%yellow
+                case 4096
+                    colorArray = [1 .4 .6];
+                case 8192
+                    colorArray = [1 .2 .8];
+                case 16384
+                    colorArray = [1 0 1];%magenta
+                otherwise
+                    colorArray = [1 1 1];%white
+            end
+            set(static44, 'BackgroundColor', colorArray)
+            %end color stuff
+        end
+    end
 
     function update(array) %refreshes the board and adds colors. fulfills the function requirement
         board=array;
@@ -974,7 +1702,25 @@ end
             end
         end
         
-        update(board);
+        if count == 0 %if passed a full board
+            %close;
+            gameOverMenu(); %game over logic
+        end
+        
+        if won==0%has not been won yet-for speed after game has been run
+            for r = 1:4
+                for c = 1:4
+                    if board(r,c)>2047%checks all the board positions
+                        if won==0%could have more than 1 2048 tile made in a move 
+                            win()
+                            won=1;
+                        end
+                    end
+                end
+            end
+        end %if won...
+        
+        dumbupdate(board);
     end
 
     function keyDownListener(source,eventdata) %this deals with movement
@@ -1196,11 +1942,11 @@ end
     end
 
     function gameOverMenu(varargin)
-        f = figure('Position', [0 0 300 300], 'Visible', 'off');
+        f = figure('Position', [0 0 300 300], 'Name', 'You Lose!', 'Visible', 'off', 'ToolBar', 'none', 'MenuBar', 'none');
         movegui(f, 'center');
-        text1 = uicontrol('Style', 'text', 'Position', [0 200 300 100], 'String', 'GAME OVER!!!');
-        button1 = uicontrol('Style', 'pushbutton', 'String', 'QUIT', 'Callback', @callbackfn1, 'Position', [20 50 100 50]);
-        button2 = uicontrol('Style', 'pushbutton', 'String', 'TRY AGAIN', 'Callback', @callbackfn2, 'Position', [180 50 100 50]);
+        text1 = uicontrol('Style', 'text', 'Position', [0 200 300 100], 'String', 'GAME OVER!!!', 'FontSize', 36);
+        button1 = uicontrol('Style', 'pushbutton', 'String', 'QUIT', 'FontSize', 12, 'Callback', @callbackfn1, 'Position', [20 50 100 50]);
+        button2 = uicontrol('Style', 'pushbutton', 'String', 'TRY AGAIN', 'FontSize', 12, 'Callback', @callbackfn2, 'Position', [180 50 100 50]);
         set(f, 'Visible', 'on')
         
         function callbackfn1(source, eventdata)
@@ -1215,11 +1961,11 @@ end
 
     function win()
         won=1;
-        w = figure('Position', [0 0 300 300], 'Visible', 'off');
+        w = figure('Position', [0 0 300 300], 'Name', 'You Win!', 'Visible', 'off', 'ToolBar', 'none', 'MenuBar', 'none');
         movegui(w, 'center');
-        text1 = uicontrol('Style', 'text', 'Position', [0 200 300 100], 'String', 'YOU WIN!!!');
-        button1 = uicontrol('Style', 'pushbutton', 'String', 'KEEP PLAYING', 'Callback', @kp, 'Position', [20 50 100 50]);
-        button2 = uicontrol('Style', 'pushbutton', 'String', 'PLAY AGAIN', 'Callback', @pa, 'Position', [180 50 100 50]);
+        text1 = uicontrol('Style', 'text', 'Position', [0 200 300 100], 'String', 'YOU WIN!!!', 'FontSize', 36);
+        button1 = uicontrol('Style', 'pushbutton', 'String', 'KEEP PLAYING', 'FontSize', 12, 'Callback', @kp, 'Position', [20 50 100 50]);
+        button2 = uicontrol('Style', 'pushbutton', 'String', 'PLAY AGAIN', 'FontSize', 12, 'Callback', @pa, 'Position', [180 50 100 50]);
         set(w, 'Visible', 'on')
         
         function kp(source, eventdata)
