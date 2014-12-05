@@ -38,6 +38,8 @@ static42 = uicontrol('Style', 'text', 'Position', [100 100 100 100], 'String', '
 static43 = uicontrol('Style', 'text', 'Position', [200 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
 static44 = uicontrol('Style', 'text', 'Position', [300 100 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center');
 
+static = uicontrol('Style', 'text', 'Position', [50 50 300 50], 'String', 'WASD to move, Q to quit, N for new game', 'FontSize', 14, 'BackgroundColor', [.9 .9 .9]);
+
 button1 = uicontrol('Style', 'pushbutton', 'String', 'Save', 'Position',[75 000 100 050], 'Callback', @save);
 button2 = uicontrol('Style', 'pushbutton', 'String', 'Load', 'Position',[225 000 100 050], 'Callback', @load);
 
