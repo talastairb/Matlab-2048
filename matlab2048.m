@@ -15,6 +15,8 @@ f = figure('Position', [0 0 400 500], 'Visible', 'off', 'MenuBar', 'none', 'Name
 
 movegui(f, 'center')
 
+startNums=2;%how many numbers to start with
+
 score=0; %possibly implemented in future versions
 %the move algorithm is partly flawed for moving down and right.  it should be fixed at some point
 %also the game throws errors trying to update when the gameover method is called and keys are pressed
@@ -45,7 +47,9 @@ set(f, 'Visible', 'on') % We kept the window invisible until now to avoid displa
 
 if nargin==0%new game
     board=[0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0]; %represents the value in each board position
-    random(board);
+    for i = 1:startNums
+        random(board) %how many numbers to spawn
+    end
 else
     board=varargin{1};%start from a specific board layout
     update(board);
@@ -948,7 +952,7 @@ end
         end
         
         if count == 0 %if passed a full board
-            close;
+            %close;
             gameOverMenu(); %game over logic
         end
         
@@ -981,7 +985,7 @@ end
                         i=2; %block merge attempted fix
                         count2=count;
                         while i <= count2 %merges same blocks
-                            if celery{i-1} == celery{i}%this needs to be fixed--DEBUG
+                            if celery{i-1} == celery{i}%this is the fix for the commented out code above
                                 celery{i-1}=2*celery{i-1};%one merged block is doubled but the other needs to be removed
                                 celery(i)=[]; %remove the block from the cell array
                                 count2=count2-1;%subtract one from the length of count2
@@ -996,7 +1000,9 @@ end
                         end
                     end
                 end
-                random(array);
+                if isequal(board, array) ==0 %if the original board and the new array arent the same, something has changed
+                    random(array);
+                end
                 
             case 'a'
                 for r=1:4 %loop requirement
@@ -1012,7 +1018,7 @@ end
                         i=2; %block merge attempted fix
                         count2=count;
                         while i <= count2 %merges same blocks
-                            if celery{i-1} == celery{i}%this needs to be fixed--DEBUG
+                            if celery{i-1} == celery{i}
                                 celery{i-1}=2*celery{i-1};%one merged block is doubled but the other needs to be removed
                                 celery(i)=[]; %remove the block from the cell array
                                 count2=count2-1;%subtract one from the length of count2
@@ -1027,7 +1033,9 @@ end
                         end
                     end
                 end
-                random(array);
+                if isequal(board, array) ==0 %if the original board and the new array arent the same, something has changed
+                    random(array);
+                end
                 
             case 's'
                 for c=1:4 %loop requirement
@@ -1039,21 +1047,42 @@ end
                             celery{count}=board(r,c);
                         end
                     end
-                    celery2=fliplr(celery);
+                    celery2=fliplr(celery);%switch order of celery2
                     if count>1 %if there is stuff that could merge
+                        %{
                         for i=2:count %merges same blocks
                             if celery2{i-1} == celery2{i}
                                 celery2{i-1}=2*celery2{i-1};
+                                %celery2{i}=[];
                             end
                         end
+                        %}
+                        %
+                        i=2; %block merge attempted fix
+                        count2=count;
+                        while i <= count2 %merges same blocks
+                            if celery2{i-1} == celery2{i}%this needs to be fixed--DEBUG
+                                celery2{i-1}=2*celery2{i-1}%one merged block is doubled but the other needs to be removed
+                                celery2(i)=[] %remove the block from the cell array
+                                count2=count2-1%subtract one from the length of count2
+                                i=i+1%skip the next block
+                            end
+                            i=i+1%add one to i
+                        end
+                        %
                     end
                     if count>0 %if there is stuff that could move
-                        for j=1:count %puts updated blockchain in new array
-                            array((5-j),c)=celery2{j};
+                        for j=1:length(celery2) %puts updated blockchain in new array
+                            array
+                            celery
+                            celery2
+                            array((5-j),c)=celery2{j}
                         end
                     end
                 end
-                random(array);
+                if isequal(board, array) ==0 %if the original board and the new array arent the same, something has changed
+                    random(array);
+                end
                 
             case 'd'
                 for r=1:4 %loop requirement
@@ -1067,22 +1096,43 @@ end
                     end
                     celery2=fliplr(celery);
                     if count>1 %if there is stuff that could merge
+                        %{
                         for i=2:count %merges same blocks
                             if celery2{i-1} == celery2{i}
                                 celery2{i-1}=2*celery2{i-1};
                             end
                         end
+                        %}
+                        %
+                        i=2; %block merge attempted fix
+                        count2=count;
+                        while i <= count2 %merges same blocks
+                            if celery2{i-1} == celery2{i}%this needs to be fixed--DEBUG
+                                celery2{i-1}=2*celery2{i-1}%one merged block is doubled but the other needs to be removed
+                                celery2(i)=[] %remove the block from the cell array
+                                count2=count2-1%subtract one from the length of count2
+                                i=i+1%skip the next block
+                            end
+                            i=i+1%add one to i
+                        end
+                        %
                     end
                     if count>0 %if therse is stuff that could move
-                        for j=1:length(celery) %puts updated blockchain in new array
+                        for j=1:length(celery2) %puts updated blockchain in new array
                             array(r,(5-j))=celery2{j};
                         end
                     end
                 end
-                random(array);
+                if isequal(board, array) ==0 %if the original board and the new array arent the same, something has changed
+                    random(array);
+                end
                 
             case 'q' %quit
                 close;
+                
+            case 'n' %new game
+                close;
+                matlab2048()
                 
         end
         
@@ -1121,7 +1171,7 @@ end
         matlab2048(board); % basically closes the gui and reopens it with the new board
     end
 
-    function gameOverMenu()
+    function gameOverMenu(varargin)
         f = figure('Position', [0 0 300 300], 'Visible', 'off');
         movegui(f, 'center');
         text1 = uicontrol('Style', 'text', 'Position', [0 200 300 100], 'String', 'GAME OVER!!!');
@@ -1137,7 +1187,6 @@ end
             close all
             matlab2048()
         end
-        
-    end
+    end %gameovermenu
 
 end

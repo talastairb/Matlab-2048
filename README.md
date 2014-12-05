@@ -9,15 +9,12 @@ View this file as raw text for proper formatting
 Instructions:
 WASD for up left down right
 Q to quit
+N for new game
 save button saves game to save.txt
 load button loads game from save.txt
 Play like regular 2048
 
-Known issues:
-     Numbers spawn when there are invalid moves
-     Needs to remove blocks when they merge after moving down or right (0044 -> goes to 0048 should be 0008)
-
-Requirements:
+Assignment Requirements:
      Matlab event-driven GUI
      A function that receives at least one argument
      Either an array of cells or an array of structs
@@ -47,4 +44,4 @@ Dev Phases:
      Cell/struct array: Should be used correctly.
      Data file: Should be reading (using) and writing (changing) the values in it.
 
--Alastair
+-Alastair and Cole
