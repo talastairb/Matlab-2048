@@ -18,8 +18,6 @@ movegui(f, 'center')
 startNums=2;%how many numbers to start with
 
 score=0; %possibly implemented in future versions
-%the move algorithm is partly flawed for moving down and right.  it should be fixed at some point
-%also the game throws errors trying to update when the gameover method is called and keys are pressed
 
 static11 = uicontrol('Style', 'text', 'Position', [000 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center'); %these create where the numbers go
 static12 = uicontrol('Style', 'text', 'Position', [100 400 100 100], 'String', '', 'FontSize', 36, 'BackgroundColor', 'w', 'HorizontalAlignment', 'center'); %http://www.mathworks.com/help/matlab/ref/uicontrol-properties.html
@@ -1942,12 +1940,13 @@ end
     end
 
     function gameOverMenu(varargin)
-        f = figure('Position', [0 0 300 300], 'Name', 'You Lose!', 'Visible', 'off', 'ToolBar', 'none', 'MenuBar', 'none');
-        movegui(f, 'center');
+        g = figure('Position', [0 0 300 300], 'Name', 'You Lose!', 'Visible', 'off', 'ToolBar', 'none', 'MenuBar', 'none');
+        movegui(g, 'center');
+        %set(g,'KeyPressFcn',@keyDownListener) %enables keylistener to stop the program from throwing errors when keys are pressed
         text1 = uicontrol('Style', 'text', 'Position', [0 200 300 100], 'String', 'GAME OVER!!!', 'FontSize', 36);
         button1 = uicontrol('Style', 'pushbutton', 'String', 'QUIT', 'FontSize', 12, 'Callback', @callbackfn1, 'Position', [20 50 100 50]);
         button2 = uicontrol('Style', 'pushbutton', 'String', 'TRY AGAIN', 'FontSize', 12, 'Callback', @callbackfn2, 'Position', [180 50 100 50]);
-        set(f, 'Visible', 'on')
+        set(g, 'Visible', 'on')
         
         function callbackfn1(source, eventdata)
             close all
@@ -1963,6 +1962,7 @@ end
         won=1;
         w = figure('Position', [0 0 300 300], 'Name', 'You Win!', 'Visible', 'off', 'ToolBar', 'none', 'MenuBar', 'none');
         movegui(w, 'center');
+        %set(w,'KeyPressFcn',@keyDownListener) %enables keylistener to stop the program from throwing errors when keys are pressed
         text1 = uicontrol('Style', 'text', 'Position', [0 200 300 100], 'String', 'YOU WIN!!!', 'FontSize', 36);
         button1 = uicontrol('Style', 'pushbutton', 'String', 'KEEP PLAYING', 'FontSize', 12, 'Callback', @kp, 'Position', [20 50 100 50]);
         button2 = uicontrol('Style', 'pushbutton', 'String', 'PLAY AGAIN', 'FontSize', 12, 'Callback', @pa, 'Position', [180 50 100 50]);
